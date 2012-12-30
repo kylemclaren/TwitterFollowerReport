@@ -37,7 +37,6 @@ tokens = {}
 
 def main():		
 	api = authorize()
-	loadFollowers()
 	
 	if loadFollowers() is False:
 		saveFollowers(api)
