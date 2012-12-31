@@ -43,6 +43,10 @@ def main():
 	
 	checkFollowers(api)	
 	
+	# Save current followers list into follower list file
+	saveFollowers(api)	   
+	
+	
 def searchForTokens(filename):
 	try:
 	   with open(filename) as f: pass
@@ -103,14 +107,16 @@ def loadFollowers():
 	   with open(followers_list_file,'r') as f: pass
 	except IOError as e:
 	   return False
-	   
+	
+	del last_followers[:]
 	full_text = open(followers_list_file,'r')
 	for line in full_text:
 		last_followers.append(line.strip())
 	
 	return True
 	
-def saveFollowers(api):
+def saveFollowers(api):	   
+	del followers[:]
 	for users in tweepy.Cursor(api.followers).items():
 		followers.append(users.screen_name)
 	
