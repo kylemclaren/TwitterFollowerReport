@@ -9,5 +9,8 @@ Features
 * It send daily reports as mail.
 * Changable reporting period.
 
+### TODO
+
+* [ ]  cron job
 
 
